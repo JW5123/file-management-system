@@ -2,7 +2,7 @@ import { initEventListeners, handleDeleteFile } from './handlers/fileHandlers.js
 import { getSelectedFiles } from './state/fileState.js';
 import { viewFile as previewFile, closePreview, downloadFile as downloadFilePreview, downloadCurrentPreviewFile } from './components/filePreview/index.js';
 import { initSidebar } from './components/sidebar/sidebar.js';
-import { initRouter } from './router.js';
+import { initRouter } from './routes.js';
 import { loadFiles } from './handlers/myfileHandlers.js';
 import { loadStats } from './handlers/statsHandler.js';
 
@@ -27,12 +27,6 @@ window.deleteFile = function(index) {
 window.viewFile = function(index) {
     const selectedFiles = getSelectedFiles();
     const file = selectedFiles[index];
-    
-    if (!file) {
-        alert('檔案不存在');
-        return;
-    }
-    
     previewFile(file, index);
 };
 
