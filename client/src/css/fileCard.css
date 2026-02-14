@@ -1,0 +1,143 @@
+.file-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    user-select: none;
+}
+
+.file-card {
+    width: 100%;
+    background: #F0F4F9;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* 未選中時的 hover */
+.file-card:not(.selected):hover {
+    background-color: #DCDCDC;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 卡片選中狀態 */
+.file-card.selected {
+    background-color: #C4E7FE;
+}
+
+/* 檔案名稱區域 - 包含名稱和更多按鈕 */
+.file-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.file-card-name {
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.file-card-more {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 100%;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    transition: background-color 0.2s ease;
+}
+
+.file-card-more:hover {
+    background-color: #D3D3D3;
+}
+
+.file-card-more i {
+    font-size: 16px;
+}
+
+.file-card-thumbnail {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #fff;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 2;
+    flex-grow: 1;
+}
+
+.file-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 12px;
+    color: #666;
+    margin-top: auto;
+    order: 3;
+}
+
+.file-size, .file-date {
+    color: #999;
+}
+
+.loading-message,
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .file-cards-container {
+        gap: 10px;
+        padding: 15px 10px;
+    }
+    
+    .file-card-name {
+        font-size: 13px;
+    }
+    
+    .file-card-info {
+        font-size: 11px;
+    }
+    
+    .file-card-more {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .file-card-more i {
+        font-size: 14px;
+    }
+}
+
+/* 拖曳選取框 */
+.selection-box {
+    position: absolute;
+    border: 2px solid #A9A9A9;
+    background-color: rgba(211, 211, 211, 0.5);
+    pointer-events: none;
+    z-index: 9999;
+    display: none;
+}
