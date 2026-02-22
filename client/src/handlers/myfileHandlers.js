@@ -3,7 +3,7 @@ import { showLoading, renderFileCards, renderSearchDropdown, hideSearchDropdown}
 import { API_FILES_URL, API_BASE_URL } from '../config/config.js';
 import { showDeleteConfirmDialog, showRenameDialog } from '../components/dialog/dialog.js';
 import { toastSuccess, toastError } from '../components/toast/toast.js';
-import { getFileType, formatDate } from '../utils/fileUtils.js';
+import { getFileCategory, formatDate } from '../utils/fileUtils.js';
 
 let allFiles = [];
 let searchFilterInitialized = false;
